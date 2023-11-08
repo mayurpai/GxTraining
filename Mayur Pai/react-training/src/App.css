@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Poppins:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(17, 17, 17);
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* font-family: "Bungee Spice", cursive; */
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 5rem;
+}
