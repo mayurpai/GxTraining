@@ -1,11 +1,7 @@
 import "./App.css";
-
-function App() {
-  return (
-    <div className="App">
-      <p>Hello, World! 👋</p>
-    </div>
-  );
-}
+import LoginController from "./components/LoginControl";
+const App = () => {
+  return <LoginController />;
+};
 
 export default App;

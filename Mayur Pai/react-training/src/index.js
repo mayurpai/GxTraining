@@ -1,18 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import SampleOne, { SampleThree as Three, default as SampleTwo } from "./Sample";
-// import { SampleTwo } from "./Sample";
+import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <SampleOne />
-    <SampleTwo />
-    <Three/>
-    {/* {SampleOne()} */}
+    <App />
   </React.StrictMode>
 );
 
