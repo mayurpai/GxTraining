@@ -12,6 +12,7 @@
   width: 100vw;
   align-items: center;
   display: flex;
+  text-align: center;
   justify-content: center;
   /* font-family: "Bungee Spice", cursive; */
   font-family: "Poppins", sans-serif;

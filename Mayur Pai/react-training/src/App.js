@@ -1,7 +1,14 @@
 import "./App.css";
-import LoginController from "./components/LoginControl";
+import Count from "./components/Count";
+import ObjectChange from "./components/ObjectChange";
 const App = () => {
-  return <LoginController />;
+  return (
+    // <MyContextProvider>
+    <div className="App">
+      <ObjectChange />
+    </div>
+    // </MyContextProvider>
+  );
 };
 
 export default App;
