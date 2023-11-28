@@ -2,6 +2,7 @@ import "./App.css";
 import Count from "./components/Count";
 import ObjectChange from "./components/ObjectChange";
 import TemperatureConverterClass from "./components/TemperatureConverterClass";
+import UseCallback from "./components/UseCallback";
 import UseRefExample from "./components/UseRefExample";
 import UseStateExample from "./components/UseStateExample";
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
     <div className="App">
       {/* <UseStateExample />
       <UseRefExample /> */}
-      <TemperatureConverterClass />
+      {/* <TemperatureConverterClass /> */}
+      <UseCallback />
     </div>
     // </MyContextProvider>
   );
