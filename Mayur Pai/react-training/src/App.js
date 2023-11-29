@@ -1,20 +1,34 @@
 import "./App.css";
-import Count from "./components/Count";
-import ObjectChange from "./components/ObjectChange";
-import TemperatureConverterClass from "./components/TemperatureConverterClass";
-import UseCallback from "./components/UseCallback";
-import UseRefExample from "./components/UseRefExample";
-import UseStateExample from "./components/UseStateExample";
+import FragmentExample from "./fragments/FragmentExample";
+
+const sampleData = [
+  {
+    id: 1,
+    name: "Mayur",
+    employeeId: 3976
+  },
+  {
+    id: 2,
+    name: "Kavya",
+    employeeId: 3977
+  },
+  {
+    id: 3,
+    name: "Pratham",
+    employeeId: 3978
+  },
+  {
+    id: 4,
+    name: "Monika",
+    employeeId: 3979
+  }
+]
+
 const App = () => {
   return (
-    // <MyContextProvider>
     <div className="App">
-      {/* <UseStateExample />
-      <UseRefExample /> */}
-      {/* <TemperatureConverterClass /> */}
-      <UseCallback />
+      <FragmentExample sampleData={sampleData}/>
     </div>
-    // </MyContextProvider>
   );
 };
 
