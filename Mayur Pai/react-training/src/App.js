@@ -1,4 +1,6 @@
 import "./App.css";
+import MyClassComponent from "./context/MyClassComponent";
+import MyProvider from "./context/MyProvider";
 import FragmentExample from "./fragments/FragmentExample";
 
 const sampleData = [
@@ -22,9 +24,12 @@ const sampleData = [
 
 const App = () => {
   return (
-    <div className="App">
-      <FragmentExample sampleData={sampleData} />
-    </div>
+    <MyProvider>
+      <div className="App">
+        {/* <FragmentExample sampleData={sampleData} /> */}
+        <MyClassComponent sampleData={sampleData}/>
+      </div>
+    </MyProvider>
   );
 };
 

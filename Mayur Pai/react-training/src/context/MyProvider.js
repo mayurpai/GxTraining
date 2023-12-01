@@ -7,7 +7,7 @@ class MyProvider extends React.Component {
   render() {
     return (
       <MyContext.Provider value={this.state.value}>
-        {this.props.children}{" "}
+        {this.props.children}
       </MyContext.Provider>
     );
   }
