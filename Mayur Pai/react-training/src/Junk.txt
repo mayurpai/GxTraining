@@ -1,0 +1,136 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Swal from "sweetalert2";
+
+export default function Timer() {
+  const [incrementer, setIncrementer] = useState();
+  const [counter, setCounter] = useState(incrementer);
+  const [buttonStates, setButtonStates] = useState({
+    startButton: false,
+    resetButton: false,
+  });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    let tempCount;
+
+    if (buttonStates.startButton) {
+      tempCount = counter - 1;
+      timer = setTimeout(() => {
+        setCounter(tempCount);
+      }, 1000);
+    }
+
+    if (buttonStates.resetButton) {
+      clearTimeout(timer);
+      setCounter(incrementer);
+      timer = setTimeout(() => {
+        setCounter(tempCount);
+      }, 1000);
+      if (buttonStates.startButton) {
+        setButtonStates({ startButton: true, resetButton: false });
+      }
+    }
+
+    if (!buttonStates.startButton) {
+      clearTimeout(timer);
+    }
+
+    if (tempCount <= -2) {
+      clearTimeout(timer);
+      setVisible(false);
+      setButtonStates({ ...buttonStates, startButton: false });
+      setTimeout(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${incrementer} Second(s) Completed!`,
+          showConfirmButton: false,
+          timer: 1000,
+        });
+        // alert(`${incrementer} Second Completed!`);
+      }, 0);
+    }
+    console.log(buttonStates.startButton, buttonStates.resetButton);
+  }, [counter, buttonStates.startButton, buttonStates.resetButton]);
+
+  const startLogic = (event) => {
+    event.preventDefault();
+    if (incrementer <= 0 || incrementer === undefined) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Please Enter A Valid Time In Second(s)",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      // alert("Please Enter A Valid Time In Second(s)");
+    } else if (!buttonStates.startButton) {
+      setButtonStates({ ...buttonStates, startButton: true });
+      setVisible(true);
+    } else {
+      setVisible(true);
+      setButtonStates({ ...buttonStates, startButton: false });
+    }
+  };
+
+  const resetLogic = (event) => {
+    event.preventDefault();
+    setVisible(false);
+    if (buttonStates.startButton == false) {
+      setButtonStates({ startButton: false, resetButton: true });
+    }
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <h1 style={{ fontWeight: "bold" }}>Timer ⏰</h1>
+      <input
+        placeholder="Enter Time In Seconds..."
+        style={{ padding: "0.5rem" }}
+        type="number"
+        value={incrementer}
+        onChange={(e) => {
+          setIncrementer(Number(e.target.value));
+        }}
+      ></input>
+      {visible ? <h1 style={{ marginTop: "1rem" }}>{counter}</h1> : null}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Button
+          style={{ margin: "1rem" }}
+          onClick={(e) => startLogic(e)}
+          type="button"
+          class="btn btn-primary"
+        >
+          {buttonStates.startButton ? "Pause" : "Start"}
+          {/* Start */}
+        </Button>
+        {/* <Button
+          style={{ margin: "1rem" }}
+          onClick={(e) => startLogic(e)}
+          type="button"
+          class="btn btn-primary"
+        > */}
+        {/* {!buttonStates.startButton ? "Pause" : "Start"} */}
+        {/* Pause */}
+        {/* </Button> */}
+        <Button
+          style={{ margin: "1rem" }}
+          onClick={(e) => resetLogic(e)}
+          type="button"
+          class="btn btn-primary"
+        >
+          Reset
+        </Button>
+      </div>
+    </div>
+  );
+}
