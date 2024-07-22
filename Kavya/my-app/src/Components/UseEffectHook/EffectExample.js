@@ -6,8 +6,6 @@ const EffectExample = () => {
     const [data, setData] = useState("");
     const [count, setCount] = useState(0);
 
-const {sharedData, setSharedData} = useContext(MyContext);
-
 
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/comments")
@@ -29,7 +27,6 @@ const {sharedData, setSharedData} = useContext(MyContext);
         >
             Click
         </button>
-        {console.log(sharedData.theme)}
     </div>
   )
 }
