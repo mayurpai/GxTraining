@@ -1,0 +1,150 @@
+1
+Introduction to React JS
+
+DOM Manipulation
+Virtual DOM
+How does React use Virtual DOM
+Virtual DOM vs Real DOM
+Thinking in React
+React one - way data binding
+React two - way data binding
+One way vs two-way data binding
+Difference b/n one - way data binding & two - way data binding
+Server-side Rendering
+Advantages of using server-side rendering
+
+2
+Installation setup
+
+Installation Setup React JS
+React JS environment Setup
+Using the Create-react-app Command
+Node Package Manager
+Default vs Named Exports
+Hello-world - Coding?
+
+3
+Building Blocks of ReactJs
+
+Core Building Blocks of React
+Components
+State and Props
+Rendering
+Conditional Rendering
+What is JSX
+Example
+Why JSX
+Advantages of JSX
+Expressions in JSX
+Internal Implementation of JSX
+Hands-on: Creating a react component with jsx
+
+4
+Elements and Functions in ReactJS
+
+Rendering Elements in React.JS
+Hands-on: How does render function work and update DOM
+Hands-on: Styling and CSS
+
+5
+Components/Hooks in React JS
+
+What are Components in React JS
+Types of Components
+Functional component
+Class Component
+Functional component vs Class Component
+Creating Class Components
+Creating Functional Components
+Converting Functional Components to Class Components
+useState
+useEffect
+useContext
+useRef
+useMemo
+useCallback
+useReducer
+useTransition
+useDeferredValue
+Custom Hooks
+
+6
+Understaning Lifecycle methods
+
+Initial Render
+Props Change
+Stage Change
+Component willMount
+Component didMount
+Component Unmount
+
+7
+Programming in React JS
+
+What are Props
+Lets Practice Props
+What is State in React JS
+ReactJS(Diff Props vs State)
+Why Props are Read-only
+Composition of React Components
+Stateless Component
+Stateful Component
+When would you use a stateless Component
+When would you use a stateful Component
+Stateful Component vs Stateless Component
+Passing props to child components
+Updating state of React JS component
+What is the significant of SetState function
+
+8
+Event Handling
+
+Events
+Event Handling
+
+9
+Router/Service Integration
+
+What is Router
+Advantages of Router
+How to Load the router library?
+Configure the React Router?
+How to Pass and receive parameters?
+Integration of React-cookie overview.
+axios introduction
+axios methods
+
+10
+Context API
+
+What is context API?
+When to use the context API
+How to use the Context API
+Fragments
+Why we use Fragments?
+Fragments short Syntax
+Keyed Fragments
+Higher-order components
+
+11
+UNIT TESTING OVERVIEW
+
+What are the necessary Tools required for Unit Testing?
+React Unit Testing overview
+Introduction to JEST.
+How to Test React Component?
+How to Test React Router?
+
+14
+Redux
+
+Redux Folder structure
+Store
+State
+Actions
+Reducers
+Dispatch
+Selectors
+Middleware
+Redux-Thunk
+Redux-Toolkit
