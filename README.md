@@ -1,1 +1,1 @@
-# GxTrainingBatch2023
+# GxTraining
