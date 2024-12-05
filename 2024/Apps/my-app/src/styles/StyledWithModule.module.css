@@ -1,0 +1,6 @@
+/* This is a CSS Module file */
+.moduleText {
+    color: green;
+    font-size: 18px;
+    text-align: center;
+}
