@@ -11,6 +11,12 @@ import Greet from './components/Greet';
 import Greeting from './components/Greeting';
 import StudentComponent from './components/StudentComponent';
 import LoginControl from './components/ConditionalRendering';
+import UseStateHook from './hooks/UseStateHook';
+import UseEffectHook from './hooks/UseEffectHook';
+import UseRefHook from './hooks/UseRefHook';
+import UseReducerHook from './hooks/UseReducerHook';
+import UseContextHook from './hooks/UseContextHook';
+import AxiosExample from './hooks/AxiosExample';
 
 const App = () => {
     const style = {
@@ -30,11 +36,17 @@ const App = () => {
             <ImageContainer source="/images/endava-gx.jpg" ></ImageContainer>
             <ImageContainer source={Gx}></ImageContainer>
             <JsxDemo></JsxDemo>
-            <Hello></Hello> */}
-            {/* <StudentComponent id="1" phone="961122012" color="red"></StudentComponent> */}
-            {/* <Greet name="Mayur"></Greet>
-            <Greeting name="Mayur"></Greeting> */}
-            <LoginControl></LoginControl>
+            <Hello></Hello>
+            <StudentComponent id="1" phone="961122012" color="red"></StudentComponent>
+            <Greet name="Mayur"></Greet>
+            <Greeting name="Mayur"></Greeting>
+            <LoginControl></LoginControl> */}
+            {/* <UseStateHook></UseStateHook> */}
+            {/* <UseEffectHook></UseEffectHook> */}
+            {/* <UseRefHook></UseRefHook> */}
+            {/* <UseReducerHook></UseReducerHook> */}
+            {/* <UseContextHook></UseContextHook> */}
+            <AxiosExample></AxiosExample>
         </div>
     );
 };
