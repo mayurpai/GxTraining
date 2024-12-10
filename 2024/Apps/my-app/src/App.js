@@ -17,6 +17,9 @@ import UseRefHook from './hooks/UseRefHook';
 import UseReducerHook from './hooks/UseReducerHook';
 import UseContextHook from './hooks/UseContextHook';
 import AxiosExample from './hooks/AxiosExample';
+import { CounterHookExample } from './custom-hooks/CounterHookExample';
+import FetcherHookExample from './custom-hooks/FetcherHookExample';
+
 
 const App = () => {
     const style = {
@@ -29,24 +32,28 @@ const App = () => {
     }
     return (
         <div style={style}>
-            {/* <HelloWorld />
-            <InlineStyledComponent />
-            <StyledWithCSS />
-            <p className={`${styles.moduleText} main`}>This is styled with CSS Modules!</p>
-            <ImageContainer source="/images/endava-gx.jpg" ></ImageContainer>
-            <ImageContainer source={Gx}></ImageContainer>
-            <JsxDemo></JsxDemo>
-            <Hello></Hello>
-            <StudentComponent id="1" phone="961122012" color="red"></StudentComponent>
-            <Greet name="Mayur"></Greet>
-            <Greeting name="Mayur"></Greeting>
-            <LoginControl></LoginControl> */}
+            {/* <HelloWorld /> */}
+            {/* <InlineStyledComponent /> */}
+            {/* <StyledWithCSS /> */}
+            {/* <p className={`${styles.moduleText} main`}>This is styled with CSS Modules!</p> */}
+            {/* <ImageContainer source="/images/endava-gx.jpg" ></ImageContainer> */}
+            {/* <ImageContainer source={Gx}></ImageContainer> */}
+            {/* <JsxDemo></JsxDemo> */}
+            {/* <Hello></Hello> */}
+            {/* <StudentComponent id="1" phone="961122012" color="red"></StudentComponent> */}
+            {/* <Greet name="Mayur"></Greet> */}
+            {/* <Greeting name="Mayur"></Greeting> */}
+            {/* <LoginControl></LoginControl> */}
             {/* <UseStateHook></UseStateHook> */}
             {/* <UseEffectHook></UseEffectHook> */}
             {/* <UseRefHook></UseRefHook> */}
             {/* <UseReducerHook></UseReducerHook> */}
             {/* <UseContextHook></UseContextHook> */}
-            <AxiosExample></AxiosExample>
+            {/* <AxiosExample></AxiosExample> */}
+            {/* <UseMemoHook></UseMemoHook> */}
+            {/* <UseRefHookExample></UseRefHookExample> */}
+            {/* <CounterHookExample></CounterHookExample> */}
+            <FetcherHookExample></FetcherHookExample>
         </div>
     );
 };
