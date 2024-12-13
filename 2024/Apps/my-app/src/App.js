@@ -19,6 +19,9 @@ import UseContextHook from './hooks/UseContextHook';
 import AxiosExample from './hooks/AxiosExample';
 import { CounterHookExample } from './custom-hooks/CounterHookExample';
 import FetcherHookExample from './custom-hooks/FetcherHookExample';
+import EventObject from './components/EventObject';
+import MyProvider from './components/MyProvider';
+import MyConsumer from './components/MyConsumer';
 
 
 const App = () => {
@@ -30,8 +33,32 @@ const App = () => {
         height: "100vh",
         width: "100vw",
     }
+
+    const items = [
+        {
+            "name": "A",
+            "id": "1",
+            "phone": "1234891212",
+        },
+        {
+            "name": "B",
+            "id": "2",
+            "phone": "1234891212",
+        },
+        {
+            "name": "C",
+            "id": "3",
+            "phone": "1234891212",
+        },
+        {
+            "name": "D",
+            "id": "4",
+            "phone": "1234891212",
+        },
+    ]
+
     return (
-        <div style={style}>
+        <>
             {/* <HelloWorld /> */}
             {/* <InlineStyledComponent /> */}
             {/* <StyledWithCSS /> */}
@@ -53,8 +80,21 @@ const App = () => {
             {/* <UseMemoHook></UseMemoHook> */}
             {/* <UseRefHookExample></UseRefHookExample> */}
             {/* <CounterHookExample></CounterHookExample> */}
-            <FetcherHookExample></FetcherHookExample>
-        </div>
+            {/* <FetcherHookExample></FetcherHookExample> */}
+            {/* <EventObject /> */}
+            <MyProvider>
+                <MyConsumer></MyConsumer>
+            </MyProvider>
+            {/* {items?.map((itr, index) => {
+                return (
+                    <React.Fragment key={index}>
+                        <h1>ID: {itr.id}</h1>
+                        <h1>Name: {itr.name}</h1>
+                        <h1>Phone: {itr.phone}</h1>
+                    </React.Fragment>
+                )
+            })} */}
+        </>
     );
 };
 
