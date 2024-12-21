@@ -1,4 +1,5 @@
 import "./App.css";
+import Timer from "./components/Timer";
 import MyClassComponent from "./context/MyClassComponent";
 import MyProvider from "./context/MyProvider";
 import FragmentExample from "./fragments/FragmentExample";
@@ -27,7 +28,8 @@ const App = () => {
     <MyProvider>
       <div className="App">
         {/* <FragmentExample sampleData={sampleData} /> */}
-        <MyClassComponent sampleData={sampleData}/>
+        {/* <MyClassComponent sampleData={sampleData}/> */}
+        <Timer></Timer>
       </div>
     </MyProvider>
   );
