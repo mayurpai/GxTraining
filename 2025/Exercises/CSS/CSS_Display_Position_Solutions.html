@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Display & Position - Complete Solutions</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --muted: #94a3b8;
+            --text: #e5e7eb;
+            --accent: #22d3ee;
+            --border: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        code,
+        pre {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            padding: 32px 0 8px;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        section {
+            margin: 26px 0 38px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: linear-gradient(180deg, #0b1224, #0b1224cc);
+        }
+
+        section h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .desc {
+            color: var(--muted);
+            margin: 8px 0 16px;
+        }
+
+        .demo {
+            padding: 14px;
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            background: #0a0f1f;
+            overflow: auto;
+        }
+
+        .note {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Display & Position - Solutions</h1>
+            <p class="muted">Ten display & position practice challenges with solved code and demos.</p>
+        </header>
+
+        <!-- Display Tasks -->
+
+        <section id="d1">
+            <h2>1) Inline vs Block</h2>
+            <p class="desc">Boxes shown inline, then stacked vertically.</p>
+            <style>
+                #d1 .box1 {
+                    background: red;
+                }
+
+                #d1 .box2 {
+                    background: green;
+                }
+
+                #d1 .box3 {
+                    background: blue;
+                }
+
+                #d1 .row {
+                    display: block;
+                }
+            </style>
+            <div class="demo">
+                <div class="box box1"></div>
+                <div class="box box2"></div>
+                <div class="box box3"></div>
+            </div>
+        </section>
+
+        <section id="d2">
+            <h2>2) Inline-block Navigation</h2>
+            <p class="desc">Navigation links side by side, styled as buttons.</p>
+            <style>
+                #d2 nav a {
+                    display: inline-block;
+                    padding: 10px 14px;
+                    margin: 2px;
+                    border: 1px solid var(--border);
+                    border-radius: 8px;
+                    background: #13224a;
+                    color: var(--text);
+                    transition: .2s;
+                }
+
+                #d2 nav a:hover {
+                    background: #1f325d;
+                }
+            </style>
+            <div class="demo">
+                <nav>
+                    <a href="#">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">Contact</a>
+                </nav>
+            </div>
+        </section>
+
+        <section id="d3">
+            <h2>3) Image with Caption</h2>
+            <p class="desc">Caption below, then side by side.</p>
+            <style>
+                #d3 .card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 6px;
+                }
+
+                #d3 .card img {
+                    border-radius: 8px;
+                    border: 1px solid var(--border);
+                    object-fit: contain;
+                    height: 100px;
+                    width: 100px;
+                }
+
+                @media(min-width:600px) {
+                    #d3 .card {
+                        flex-direction: row;
+                        align-items: center;
+                    }
+
+                    #d3 .caption {
+                        margin-left: 10px;
+                    }
+                }
+            </style>
+            <div class="demo">
+                <div class="card">
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="Sample">
+                    <p class="caption">This is a caption</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="d4">
+            <h2>4) Flexbox Centering</h2>
+            <p class="desc">Centering child both ways with flex.</p>
+            <style>
+                #d4 .parent {
+                    width: 500px;
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #13224a;
+                    border-radius: 12px;
+                }
+
+                #d4 .child {
+                    width: 100px;
+                    height: 100px;
+                    background: #22d3ee;
+                    border-radius: 10px;
+                }
+            </style>
+            <div class="demo">
+                <div class="parent">
+                    <div class="child"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="d5">
+            <h2>5) Grid Layout</h2>
+            <p class="desc">2×2 grid of boxes with gap.</p>
+            <style>
+                #d5 .grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 150px);
+                    grid-template-rows: repeat(2, 150px);
+                    gap: 10px;
+                }
+
+                #d5 .grid .box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #0c1533;
+                    color: var(--text);
+                    border-radius: 10px;
+                }
+            </style>
+            <div class="demo">
+                <div class="grid">
+                    <div class="box">1</div>
+                    <div class="box">2</div>
+                    <div class="box">3</div>
+                    <div class="box">4</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Position Tasks -->
+
+        <section id="p1">
+            <h2>1) Relative Shift</h2>
+            <p class="desc">Shifted using <code>position: relative</code>.</p>
+            <style>
+                #p1 .box {
+                    width: 200px;
+                    height: 200px;
+                    background: blue;
+                    position: relative;
+                    top: 50px;
+                    left: 50px;
+                    border-radius: 8px;
+                }
+            </style>
+            <div class="demo">
+                <div class="box"></div>
+            </div>
+        </section>
+
+        <section id="p2">
+            <h2>2) Absolute Inside Parent</h2>
+            <p class="desc">Small red box in bottom-right corner.</p>
+            <style>
+                #p2 .parent {
+                    width: 400px;
+                    height: 400px;
+                    background: #d1d5db;
+                    position: relative;
+                }
+
+                #p2 .child {
+                    width: 50px;
+                    height: 50px;
+                    background: red;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+            </style>
+            <div class="demo">
+                <div class="parent">
+                    <div class="child"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="p3">
+            <h2>3) Fixed Header</h2>
+            <p class="desc">Header stays while scrolling.</p>
+            <style>
+                #p3 header {
+                    width: 100%;
+                    height: 60px;
+                    background: #111b36;
+                    color: var(--text);
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                #p3 main {
+                    margin-top: 70px;
+                }
+            </style>
+            <div class="demo" style="height:200px;overflow:auto;">
+                <header>My Header</header>
+                <main>
+                    <p>Lots of content here...</p>
+                    <p>Scroll down to see effect</p>
+                    <p style="height:400px;"></p>
+                </main>
+            </div>
+        </section>
+
+        <section id="p4">
+            <h2>4) Sticky Section Title</h2>
+            <p class="desc">Title sticks until section ends.</p>
+            <style>
+                #p4 section {
+                    height: 200px;
+                    overflow: auto;
+                    border: 1px solid var(--border);
+                }
+
+                #p4 h2 {
+                    position: sticky;
+                    top: 0;
+                    background: #13224a;
+                    padding: 6px;
+                }
+            </style>
+            <div class="demo">
+                <section>
+                    <h2>Sticky Title</h2>
+                    <p>Lorem ipsum dolor sit amet...</p>
+                    <p>Keep scrolling...</p>
+                    <p>And more text...</p>
+                </section>
+            </div>
+        </section>
+
+        <section id="p5">
+            <h2>5) Z-Index Stacking</h2>
+            <p class="desc">Green above red, red above blue.</p>
+            <style>
+                #p5 .box {
+                    width: 100px;
+                    height: 100px;
+                    position: absolute;
+                }
+
+                #p5 .red {
+                    background: red;
+                    z-index: 2;
+                    top: 30px;
+                    left: 30px;
+                }
+
+                #p5 .green {
+                    background: green;
+                    z-index: 3;
+                    top: 60px;
+                    left: 60px;
+                }
+
+                #p5 .blue {
+                    background: blue;
+                    z-index: 1;
+                    top: 90px;
+                    left: 90px;
+                }
+
+                #p5 .wrapper {
+                    position: relative;
+                    height: 250px;
+                }
+            </style>
+            <div class="demo">
+                <div class="wrapper">
+                    <div class="box red"></div>
+                    <div class="box green"></div>
+                    <div class="box blue"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="muted" style="text-align:center; padding: 20px 0 10px;">
+            Built for your Display & Position practice - all examples are copy-paste ready.
+        </footer>
+    </div>
+</body>
+
+</html>

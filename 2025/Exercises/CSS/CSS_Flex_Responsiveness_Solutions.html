@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Flexbox & Responsiveness - Complete Solutions</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --muted: #94a3b8;
+            --text: #e5e7eb;
+            --accent: #22d3ee;
+            --border: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        code,
+        pre {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            padding: 32px 0 8px;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        section {
+            margin: 26px 0 38px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: linear-gradient(180deg, #0b1224, #0b1224cc);
+        }
+
+        section h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .desc {
+            color: var(--muted);
+            margin: 8px 0 16px;
+        }
+
+        .demo {
+            padding: 14px;
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            background: #0a0f1f;
+            overflow: hidden;
+        }
+
+        .note {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 900px) {
+            .split {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .kbd {
+            border: 1px solid var(--border);
+            background: #0c1429;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .stack {
+            display: grid;
+            gap: 10px;
+        }
+
+        /* Utilities for demos */
+        .chip {
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: #111b36;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #0e1a37;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .card {
+            background: #0e1530;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .tight {
+            margin: 0;
+        }
+
+        .grid-auto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Flexbox & Responsiveness - Solutions</h1>
+            <p class="muted">Ten hands-on solutions with live demos. Each section is self-contained, uniquely scoped,
+                and mobile-first.</p>
+        </header>
+
+        <!-- 1. Responsive Navigation Bar -->
+        <section id="s1">
+            <div class="split">
+                <div>
+                    <h2>1) Responsive Navigation Bar</h2>
+                    <p class="desc">Logo left, menu on the right on desktop; stacked on mobile.</p>
+                    <span class="badge">Flexbox • Media Queries</span>
+                </div>
+                <div class="note">Tip: Use <span class="kbd">display:flex</span>, <span class="kbd">gap</span>, and a
+                    breakpoint to switch layout.</div>
+            </div>
+            <style>
+                /* Scoped styles for section s1 */
+                #s1 .nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    padding: 12px 16px;
+                    border: 1px solid var(--border);
+                    border-radius: 12px;
+                    background: #0a1023;
+                }
+
+                #s1 .brand {
+                    font-weight: 700;
+                    letter-spacing: .3px;
+                }
+
+                #s1 .menu {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                }
+
+                #s1 .menu a {
+                    padding: 8px 10px;
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                }
+
+                @media (max-width: 640px) {
+                    #s1 .nav {
+                        flex-direction: column;
+                        align-items: stretch;
+                    }
+
+                    #s1 .menu {
+                        flex-direction: column;
+                    }
+                }
+            </style>
+            <div class="demo">
+                <nav class="nav">
+                    <div class="brand">Logo</div>
+                    <div class="menu">
+                        <a href="#">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">Contact</a>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- 2. Equal Height Cards -->
+        <section id="s2">
+            <h2>2) Equal Height Cards</h2>
+            <p class="desc">Three cards inside a flex container, all equal height regardless of content length.</p>
+            <style>
+                #s2 .wrap {
+                    display: flex;
+                    gap: 14px;
+                    align-items: stretch;
+                }
+
+                #s2 .wrap .card {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #s2 .wrap .card .grow {
+                    flex: 1;
+                }
+            </style>
+            <div class="demo">
+                <div class="wrap">
+                    <div class="card">
+                        <h3 class="tight">Short</h3>
+                        <p class="grow">Short text.</p><button class="btn">Open</button>
+                    </div>
+                    <div class="card">
+                        <h3 class="tight">Medium</h3>
+                        <p class="grow">A little longer text that should still match height. Add a couple more sentences
+                            to increase height just a bit.</p><button class="btn">Open</button>
+                    </div>
+                    <div class="card">
+                        <h3 class="tight">Tall</h3>
+                        <p class="grow">Some text<br>with multiple lines<br>to test height.<br>Even more lines to
+                            simulate tall content.</p><button class="btn">Open</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Sidebar + Content Layout -->
+        <section id="s3">
+            <h2>3) Sidebar + Content Layout</h2>
+            <p class="desc">Sidebar fixed at 200px, content fills remaining space. On mobile, sidebar stacks above
+                content.</p>
+            <style>
+                #s3 .layout {
+                    display: flex;
+                    gap: 12px;
+                }
+
+                #s3 .sidebar {
+                    flex: 0 0 200px;
+                }
+
+                #s3 .content {
+                    flex: 1 1 auto;
+                }
+
+                @media (max-width: 700px) {
+                    #s3 .layout {
+                        flex-direction: column;
+                    }
+
+                    #s3 .sidebar {
+                        flex-basis: auto;
+                    }
+                }
+            </style>
+            <div class="demo">
+                <div class="layout">
+                    <aside class="card sidebar">Sidebar (200px)</aside>
+                    <main class="card content">Main content fills the rest. Resize to see the stack-on-mobile behavior.
+                    </main>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Justify & Align Variations -->
+        <section id="s4">
+            <h2>4) Justify &amp; Align Variations</h2>
+            <p class="desc">Six boxes in a flex container using <span class="kbd">justify-content: space-between</span>,
+                <span class="kbd">align-items: center</span>, and <span class="kbd">flex-wrap: wrap</span>.
+            </p>
+            <style>
+                #s4 .flex {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    padding: 10px;
+                    border: 1px dashed var(--border);
+                    border-radius: 12px;
+                }
+
+                #s4 .box {
+                    width: 120px;
+                    height: 70px;
+                    display: grid;
+                    place-items: center;
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    background: #0c1533;
+                }
+            </style>
+            <div class="demo">
+                <div class="flex">
+                    <div class="box">1</div>
+                    <div class="box">2</div>
+                    <div class="box">3</div>
+                    <div class="box">4</div>
+                    <div class="box">5</div>
+                    <div class="box">6</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Responsive Footer -->
+        <section id="s5">
+            <h2>5) Responsive Footer</h2>
+            <p class="desc">Three sections side-by-side on desktop, stacked vertically on mobile.</p>
+            <style>
+                #s5 .footer {
+                    display: flex;
+                    gap: 14px;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+
+                #s5 .col {
+                    flex: 1 1 220px;
+                    padding: 10px;
+                    border: 1px solid var(--border);
+                    border-radius: 12px;
+                    background: #0b1431;
+                }
+            </style>
+            <div class="demo">
+                <footer class="footer">
+                    <div class="col">
+                        <h3 class="tight">About</h3>
+                        <p class="muted">We build beautiful, responsive UIs.</p>
+                    </div>
+                    <div class="col">
+                        <h3 class="tight">Links</h3>
+                        <div class="stack"><a href="#">Home</a><a href="#">Docs</a><a href="#">Support</a></div>
+                    </div>
+                    <div class="col">
+                        <h3 class="tight">Contact</h3>
+                        <div class="stack"><span class="chip">hi@example.com</span><span class="chip">@twitter</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+        <!-- 6. Media Query Breakpoints -->
+        <section id="s6">
+            <h2>6) Media Query Breakpoints</h2>
+            <p class="desc">Two columns side-by-side at <span class="kbd">min-width: 768px</span>; stacked below that.
+            </p>
+            <style>
+                #s6 .cols {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+
+                @media (min-width: 768px) {
+                    #s6 .cols {
+                        flex-direction: row;
+                    }
+                }
+
+                #s6 .c {
+                    flex: 1;
+                    padding: 10px;
+                    border: 1px solid var(--border);
+                    border-radius: 12px;
+                    background: #0b1431;
+                }
+            </style>
+            <div class="demo">
+                <div class="cols">
+                    <div class="c">Column 1</div>
+                    <div class="c">Column 2</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Responsive Image Gallery -->
+        <section id="s7">
+            <h2>7) Responsive Image Gallery</h2>
+            <p class="desc">Desktop: 4 per row • Tablet: 2 per row • Mobile: 1 per row.</p>
+            <style>
+                #s7 .gallery {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+
+                @media (min-width: 640px) {
+                    #s7 .gallery {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (min-width: 1024px) {
+                    #s7 .gallery {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                }
+
+                #s7 .gallery img {
+                    width: 100%;
+                    height: 160px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                    border: 1px solid var(--border);
+                }
+            </style>
+            <div class="demo">
+                <div class="gallery">
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img1" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img2" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img3" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img4" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img5" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img6" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img7" />
+                    <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="img8" />
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Responsive Hero Section -->
+        <section id="s8">
+            <h2>8) Responsive Hero Section</h2>
+            <p class="desc">Text left and image right on wide screens; image moves below text on small screens.</p>
+            <style>
+                #s8 .hero {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    align-items: center;
+                }
+
+                #s8 .hero .text {
+                    flex: 1;
+                }
+
+                #s8 .hero .image {
+                    flex: 1;
+                }
+
+                #s8 .hero img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 12px;
+                    border: 1px solid var(--border);
+                }
+
+                @media (min-width: 900px) {
+                    #s8 .hero {
+                        flex-direction: row;
+                        align-items: stretch;
+                    }
+                }
+            </style>
+            <div class="demo">
+                <section class="hero">
+                    <div class="text card">
+                        <h3 class="tight">Build Stunning Interfaces</h3>
+                        <p class="muted">Mobile-first CSS with clean breakpoints. Resize to see the image drop below on
+                            smaller screens.</p>
+                        <div class="stack"><span class="chip">Fast</span><span class="chip">Accessible</span><span
+                                class="chip">Responsive</span></div>
+                    </div>
+                    <div class="image">
+                        <img src="https://mayurpai.github.io/portfolio/images/BestLogo.png" alt="Hero">
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- 9. Flexbox Centered Login Form -->
+        <section id="s9">
+            <h2>9) Flexbox Centered Login Form</h2>
+            <p class="desc">Perfectly centered both vertically and horizontally. On small screens, the form shrinks to
+                fit.</p>
+            <style>
+                #s9 .viewport {
+                    min-height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px;
+                    border: 1px dashed var(--border);
+                    border-radius: 12px;
+                }
+
+                #s9 form {
+                    width: 100%;
+                    max-width: 380px;
+                    display: grid;
+                    gap: 10px;
+                }
+
+                #s9 input {
+                    padding: 10px;
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    background: #0c1533;
+                    color: var(--text);
+                }
+
+                #s9 button {
+                    padding: 10px;
+                    border: 1px solid var(--border);
+                    border-radius: 10px;
+                    background: #13224a;
+                    color: var(--text);
+                }
+            </style>
+            <div class="demo">
+                <div class="viewport">
+                    <form>
+                        <h3 class="tight">Login</h3>
+                        <input type="text" placeholder="Username" />
+                        <input type="password" placeholder="Password" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Responsive Pricing Table -->
+        <section id="s10">
+            <h2>10) Responsive Pricing Table</h2>
+            <p class="desc">Three pricing cards in a row on desktop; stacked vertically on mobile.</p>
+            <style>
+                #s10 .pricing {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 14px;
+                }
+
+                @media (min-width: 900px) {
+                    #s10 .pricing {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+
+                #s10 .p {
+                    padding: 16px;
+                    border: 1px solid var(--border);
+                    border-radius: 14px;
+                    background: #0c1533;
+                    display: grid;
+                    gap: 10px;
+                }
+
+                #s10 .price {
+                    font-size: 28px;
+                }
+
+                #s10 ul {
+                    margin: 0;
+                    padding-left: 18px;
+                }
+            </style>
+            <div class="demo">
+                <div class="pricing">
+                    <div class="p">
+                        <h3 class="tight">Basic</h3>
+                        <div class="price">₹0</div>
+                        <ul>
+                            <li>1 project</li>
+                            <li>Email support</li>
+                            <li>Community access</li>
+                        </ul>
+                        <button class="btn">Choose</button>
+                    </div>
+                    <div class="p" style="background:#0e1a37;">
+                        <h3 class="tight">Pro</h3>
+                        <div class="price">₹999</div>
+                        <ul>
+                            <li>10 projects</li>
+                            <li>Priority support</li>
+                            <li>Advanced analytics</li>
+                        </ul>
+                        <button class="btn">Choose</button>
+                    </div>
+                    <div class="p">
+                        <h3 class="tight">Premium</h3>
+                        <div class="price">₹1,999</div>
+                        <ul>
+                            <li>Unlimited projects</li>
+                            <li>24/7 support</li>
+                            <li>Team collaboration</li>
+                        </ul>
+                        <button class="btn">Choose</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="muted" style="text-align:center; padding: 20px 0 10px;">
+            Built for your Flexbox & Responsiveness practice - all examples are copy-paste ready.
+        </footer>
+    </div>
+</body>
+
+</html>
