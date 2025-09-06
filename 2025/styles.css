@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.parent {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    background-color: aquamarine;
+    border: 2px solid blue;
+}
+
+
+.child {
+    position: absolute;
+    height: 10px;
+    bottom: -100px;
+    right: 0;
+    width: 200px;
+    border: 2px solid green;
+    background-color: red;
+}
