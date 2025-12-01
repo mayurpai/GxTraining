@@ -1,26 +1,6 @@
 import "./App.css";
 
 const App = () => {
-    // const process = import.meta.env
-
-    // const style = {
-    //     color: 'red',
-    // }
-    // console.log(process.VITE_PORT)
-    // const element = <h1>10 + 10 Is {10 + 10}</h1>
-    {/* <h1 className='greeting'>Hello!</h1> */ }
-    // const i = React.createElement(
-    //     'h1',
-    //     { className: 'greeting' },
-    //     'Hello!'
-    // )
-    // const messages = ["React", "Re: React", "Re:Re: React"];
-    // Swal.fire({
-    //     title: 'Info!',
-    //     text: 'Do you want to continue',
-    //     icon: 'info',
-    //     confirmButtonText: 'Cool'
-    // })
     return (
         <>
             <h1>App</h1>
